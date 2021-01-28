@@ -10,21 +10,23 @@ class App extends Component {
   state = {
     username: '',
     password: ''
-  }
+  };
 
   handleTextChange = (e) => {
     const state = { ...this.state }
     state[e.target.name] = e.target.value
     this.setState(state)
-  }
+  };
 
   login = (e) => {
     e.preventDefault()
     // set cookie here
     // set loggedIn = true and max-age = 60*1000 (one minute)
 
+    document.cookie = "loggedIn=true;max-age=60*1000*"
+
     window.location.replace("/")
-  }
+  };
 
   render() {
     return (
@@ -55,6 +57,6 @@ class App extends Component {
       </div>
     );
   }
-}
+};
 
 export default App;
